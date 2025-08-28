@@ -19,6 +19,16 @@ def render_tab(dfs):
     col2.metric('Maximum axis power value', f'{table_merged['power'].max():.2f}')
     col3.metric('Minimum axis power value', f'{table_merged['power'].min():.2f}')
 
+    col1, col2, col3 = st.columns(3)
+    col1.metric('Average axis speed', f'{table_merged['speed'].mean():.2f}')
+    col2.metric('Maximum axis speed value', f'{table_merged['speed'].max():.2f}')
+    col3.metric('Minimum axis speed value', f'{table_merged['speed'].min():.2f}')
+
+    col1, col2, col3 = st.columns(3)
+    col1.metric('Average axis acceleration', f'{table_merged['acceleration'].mean():.2f}')
+    col2.metric('Maximum axis acceleration value', f'{table_merged['acceleration'].max():.2f}')
+    col3.metric('Minimum axis acceleration value', f'{table_merged['acceleration'].min():.2f}')
+
     st.dataframe(table_merged)
 
     table_merged[['speed', 'acceleration']] = table_merged[['speed', 'acceleration']].abs()
